@@ -12,51 +12,146 @@
         }
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #0a0a0a;
-        }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #0d1117;
+}
 
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 5px solid transparent;
-            border-top: 5px solid #ff0080;
-            border-right: 5px solid #00eaff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            position: relative;
-            box-shadow: 0 0 15px #ff0080;
-        }
+.loader {
+  display: flex;
+  gap: 10px;
+}
 
-        .loader::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #0a0a0a;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 10px #00eaff;
-        }
+.loader div {
+  width: 15px;
+  height: 15px;
+  background-color: #00ffcc;
+  animation: bounce 1.5s infinite ease-in-out;
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .container{
-            height: 600px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+.loader div:nth-child(1) {
+  animation-delay: 0s;
+}
+.loader div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loader div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loader div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.5;
+  }
+}
+
         /* Inputs Styling - Glass Effect */
 .box1 input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    margin-top: 5px;
+}
+
+.box1 input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.box1 input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Styling - Soft Glassmorphism */
+.box1 button {
+    width: 80%;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(255, 154, 158, 0.3);
+}
+
+.box1 button:hover {
+    background: linear-gradient(135deg, #fad0c4, #ff9a9e);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 154, 158, 0.5);
+}
+
+.box1 button:active {
+    transform: scale(0.95);
+}
+
+
+
+.container{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+        .box1{
+            height: 400px;
+            width: 300px;
+            /* border: 1px solid white; */
+            box-shadow: 0px 0px 15px gray;
+            border-radius: 5px;
+            /* margin-left: 10px; */
+           visibility: hidden;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           font-size: 5px;
+        }
+        input::placeholder{
+            font-size: 14px;
+        }
+        .box2{
+            height: 400px;
+            width: 300px;
+            border: 1px solid white;
+         visibility: hidden;
+         /* background-color: #00eaff; */
+         border-radius: 20px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         color: white;
+         font-size: 16px;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        @media (max-width: 600px){
+            .box1 input {
     width: 80%;
     padding: 12px;
     margin: 10px 0;
@@ -72,7 +167,7 @@
 }
 
 .box1 input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .box1 input:focus {
@@ -93,6 +188,7 @@
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    margin-bottom: 10px;
     backdrop-filter: blur(10px);
     box-shadow: 0 5px 15px rgba(255, 154, 158, 0.3);
 }
@@ -109,17 +205,31 @@
 
 
 
-
+.container{
+    height: 600px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
         .box1{
-            height: 400px;
+            height: 450px;
             width: 300px;
-            border: 1px solid white;
+            /* border: 1px solid white; */
+            box-shadow: 0px 0px 15px gray;
+            border-radius: 5px;
+            /* margin-left: 10px; */
            visibility: hidden;
            display: flex;
            flex-direction: column;
            align-items: center;
            justify-content: center;
+           font-size: 5px;
+        }
+        input::placeholder{
+            font-size: 14px;
         }
         .box2{
             height: 400px;
@@ -132,23 +242,32 @@
          align-items: center;
          justify-content: center;
          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         margin-top: 20px;
+        }
         }
     </style>
 </head>
-<body>
+<body id="col">
     
 <div class="container">
     <div class="box1" id="box-1">
 <input type="text" id="height" placeholder="Enter The Height">
 <input type="text" id="width" placeholder="Enter The Width">
-<input type="text" id="bgcolor" placeholder="Enter The Background Color">
+<input type="text" id="bgcolor" placeholder="Enter The Bg color">
 <input type="text" id="b-r" placeholder="Enter The Border-Radius in %">
+<input type="text" id="txtclr" placeholder="Select The Text Color">
+<input type="color" id="color" placeholder="Select The Color">
 <button onclick="submit()" btn>SUBMIT</button>
     </div>
-    <div class="loader " id="setint"></div>
+    <div class="loader " id="setint">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <div class="box2" id="div2">
         <center>
-<h3>Hello! I am Ameer Hamza </h3>
+<h3 id="text">Hello! I am Ameer Hamza </h3>
 </center>
     </div>
 </div>
